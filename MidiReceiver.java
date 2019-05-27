@@ -15,6 +15,9 @@ public class MidiReceiver implements Receiver
 	private Integer channel_press = new Integer(0xD);
 	private Integer pitch_bend = new Integer(0xE);
 	private Integer sysex = new Integer(0xF);
+	// Status of note
+	public boolean on = false;
+	public Integer note;
 	
 	public MidiReceiver(String name)
 	{
@@ -23,22 +26,24 @@ public class MidiReceiver implements Receiver
 	
 	public void send(MidiMessage msg, long timestamp)
 	{	
-		// Status messages are 32 bits, we don't care about the 24 MSB or the 4 LSB, so we isolate the 4bits we care about
+		// Status messages are 32 bits, the 24 MSB and the 4 LSB don't matter, so the 4 necessary bits are isolated
 		Integer status = new Integer(((msg.getMessage()[0] >> 4) & (0xf)));
 		Integer input_channel = new Integer(msg.getMessage()[1]);
 		Integer input_val = new Integer(msg.getMessage()[2]);
 		System.out.println("\nStatus: " + Integer.toHexString(status));
 		
-		// Lowest note on MPK Mini: 48, Highest note on MPK Mini: 72
 		if (status.equals(note_on))
 		{
 			// TODO: Implement
 			System.out.println("Note on");
+			this.on = true;
+			this.note = input_channel.intValue();
 		}
 		else if (status.equals(note_off))
 		{
 			// TODO: Implement
 			System.out.println("Note off");
+			this.note = false;
 		}
 		else if (status.equals(poly_press))
 		{
@@ -74,6 +79,6 @@ public class MidiReceiver implements Receiver
 	
 	public void close()
 	{
-		for (int i = 0; i < this.clips.length; i++) { this.clips[i].close(); }
+		
 	}
 }

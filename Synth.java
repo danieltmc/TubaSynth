@@ -14,6 +14,7 @@ public class Synth
 		try
 		{
 			// Initialize Tuba Synth
+			Tuba tuba = new Tuba();
 		}
 		catch (Exception e) { System.out.println(e.toString()); }
 		
@@ -25,21 +26,33 @@ public class Synth
 				List<Transmitter> transmitters = device.getTransmitters();
 				for (int j = 0; j < transmitters.size(); j++)
 				{
-					transmitters.get(j).setReceiver(new MidiInputReceiver(device.getDeviceInfo().toString()));
+					transmitters.get(j).setReceiver(new MidiReceiver(device.getDeviceInfo().toString()));
 				}
-				temp = new MidiInputReceiver(device.getDeviceInfo().toString());
-				temp.setClipArray(clips);
+				receiver = new MidiReceiver(device.getDeviceInfo().toString());
 				transmitter = device.getTransmitter();
-				transmitter.setReceiver(temp);
+				transmitter.setReceiver(receiver);
 				device.open();
 				System.out.println("MIDI Device Initialized: " + device.getDeviceInfo() + " was opened");
 			}
-			catch (MidiUnavailableException e) { /* Do nothing because we are iterating through all options until we find one input and one output that work */ }
+			catch (MidiUnavailableException e) { /* Do nothing - iterating through all options until 1 input and 1 output are found */ }
 		}
 	}
 	
 	public static void main(String[] args)
 	{
 		Synth synth = new Synth();
+		while (true)
+		{
+			if (synth.receiver.on)
+			{
+				synth.tuba.update(synth.receiver.note);
+			}
+			else
+			{
+				// Silence if the note is off
+				synth.tuba.update();
+			}
+		}
+		synth.tuba.stop();
 	}
 }

@@ -2,7 +2,7 @@ import javax.sound.midi.*;
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class MidiTransmitter implements Transmitter
+public class MidiTransmitter// implements Transmitter
 {
 	// Name of MIDI device
 	public String name;
@@ -74,6 +74,6 @@ public class MidiTransmitter implements Transmitter
 	
 	public void close()
 	{
-		for (int i = 0; i < this.clips.length; i++) { this.clips[i].close(); }
+		
 	}
 }
