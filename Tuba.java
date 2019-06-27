@@ -14,9 +14,16 @@ public class Tuba
 		tick = (long) 0;
 		buffer = new byte[1];
 		AudioFormat af = new AudioFormat((float) 44100, 8, 1, true, false);
-		sdl = AudioSystem.getSourceDataLine(af);
-		sdl.open();
-		sdl.start();
+		try
+		{
+			sdl = AudioSystem.getSourceDataLine(af);
+			sdl.open();
+			sdl.start();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 	
 	public void update(int note)

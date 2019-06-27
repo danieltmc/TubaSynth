@@ -31,6 +31,7 @@ public class MidiReceiver implements Receiver
 		Integer input_channel = new Integer(msg.getMessage()[1]);
 		Integer input_val = new Integer(msg.getMessage()[2]);
 		System.out.println("\nStatus: " + Integer.toHexString(status));
+		System.out.println("Channel: " + Integer.toString(input_channel));
 		
 		if (status.equals(note_on))
 		{
@@ -43,7 +44,7 @@ public class MidiReceiver implements Receiver
 		{
 			// TODO: Implement
 			System.out.println("Note off");
-			this.note = false;
+			this.on = false;
 		}
 		else if (status.equals(poly_press))
 		{

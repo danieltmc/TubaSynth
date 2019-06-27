@@ -2,24 +2,21 @@ import javax.sound.midi.*;
 import javax.sound.sampled.*;
 import java.util.List;
 
-public class Synth
+public class DigitalTuba
 {
-	public Transmitter transmitter;
-	private MidiReceiver receiver;
-	public Tuba tuba;
-	
-	public Synth()
+	//public Transmitter transmitter;
+	//private MidiReceiver receiver;
+	public static final int SAMPLING_RATE = 44100;
+	private AudioFormat format = new AudioFormat(SAMPLING_RATE, 16, 1, true, false);
+	// Setup
+	// Go
+	// Drain
+	public double value = (double) 0.0; // Needs to range between 0.0 and 1.0
+
+	public DigitalTuba()
 	{
 		MidiDevice device;
 		MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
-		try
-		{
-			// Initialize Tuba Synth
-			//Tuba tuba = new Tuba();
-			this.tuba = new Tuba();
-		}
-		catch (Exception e) { System.out.println(e.toString()); }
-		
 		for (int i = 0; i < infos.length; i++)
 		{
 			try
@@ -38,31 +35,11 @@ public class Synth
 			}
 			catch (MidiUnavailableException e) { /* Do nothing - iterating through all options until 1 input and 1 output are found */ }
 		}
+		
 	}
-	
+
 	public static void main(String[] args)
 	{
-		Synth synth = new Synth();
-		/*
-		while (true)
-		{
-			synth.tuba.update();
-		}
-		*/
-		///*
-		while (true)
-		{
-			if (synth.receiver.on)
-			{
-				synth.tuba.update(synth.receiver.note);
-			}
-			else
-			{
-				// Silence if the note is off
-				synth.tuba.update();
-			}
-		}
-		//synth.tuba.stop();
-		//*/
+		DigitalTuba tuba = new DigitalTuba();
 	}
 }
