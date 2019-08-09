@@ -1,68 +1,22 @@
-import javax.sound.midi.*;
 import javax.sound.sampled.*;
-import java.util.List;
 
 public class Synth
 {
-	public Transmitter transmitter;
-	private MidiReceiver receiver;
-	public Tuba tuba;
+	public static final int BUFFER_SIZE = 16;
+	public static final int SAMPLE_RATE = 44100;
+	
+	public Mixer.Info mixer;
+	public AudioFormat format = new AudioFormat(SAMPLE_RATE, 16, 1, true, false);
+	public SourceDataLine sdl;
+	public byte[] buffer = new byte[BUFFER_SIZE];
 	
 	public Synth()
 	{
-		MidiDevice device;
-		MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
-		try
-		{
-			// Initialize Tuba Synth
-			//Tuba tuba = new Tuba();
-			this.tuba = new Tuba();
-		}
-		catch (Exception e) { System.out.println(e.toString()); }
 		
-		for (int i = 0; i < infos.length; i++)
-		{
-			try
-			{
-				device = MidiSystem.getMidiDevice(infos[i]);
-				List<Transmitter> transmitters = device.getTransmitters();
-				for (int j = 0; j < transmitters.size(); j++)
-				{
-					transmitters.get(j).setReceiver(new MidiReceiver(device.getDeviceInfo().toString()));
-				}
-				this.receiver = new MidiReceiver(device.getDeviceInfo().toString());
-				this.transmitter = device.getTransmitter();
-				this.transmitter.setReceiver(receiver);
-				device.open();
-				System.out.println("MIDI Device Initialized: " + device.getDeviceInfo() + " was opened");
-			}
-			catch (MidiUnavailableException e) { /* Do nothing - iterating through all options until 1 input and 1 output are found */ }
-		}
 	}
 	
 	public static void main(String[] args)
 	{
-		Synth synth = new Synth();
-		/*
-		while (true)
-		{
-			synth.tuba.update();
-		}
-		*/
-		///*
-		while (true)
-		{
-			if (synth.receiver.on)
-			{
-				synth.tuba.update(synth.receiver.note);
-			}
-			else
-			{
-				// Silence if the note is off
-				synth.tuba.update();
-			}
-		}
-		//synth.tuba.stop();
-		//*/
+		
 	}
 }
