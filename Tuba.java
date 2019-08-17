@@ -34,6 +34,7 @@ public class Tuba
 			try
 			{
 				note_poll();
+				// TODO: Remove sleep. Not necessary if notes are played in 1ms increments
 				// Sleep for 40 milliseconds while the note plays
 				Thread.sleep(40);
 			}
@@ -69,6 +70,81 @@ public class Tuba
 		// Open fingering
 		if (true)
 		{
+			// Play C or G
+		}
+		// First valve
+		else if (true)
+		{
+			// Play F or Bb
+		}
+		// Second valve
+		else if (true)
+		{
+			// Play Gb or B
+		}
+		// Third valve
+		else if (true)
+		{
+			// Play E or A
+		}
+		// Fourth valve
+		else if (true)
+		{
+			// Play D or low G
+		}
+		// 1 & 2
+		else if (true)
+		{
+			// Play E or A
+		}
+		// 1 & 3
+		else if (true)
+		{
+			// Play D or low G
+		}
+		// 1 & 4
+		else if (true)
+		{
+			// TODO: Find note that is played
+		}
+		// 2 & 3
+		else if (true)
+		{
+			// Play Eb or Ab
+		}
+		// 2 & 4
+		else if (true)
+		{
+			// Play Db or low Gb
+		}
+		// 3 & 4
+		else if (true)
+		{
+			// TODO: Find note that is played
+			// Low Eb?
+		}
+		// 1 & 2 & 3
+		else if (true)
+		{
+			// Play Db or low F
+		}
+		// 1 & 2 & 4
+		else if (true)
+		{
+			// Play low F
+		}
+		// 2 & 3 & 4
+		else if (true)
+		{
+			// Play low E
+		}
+	}
+	
+	public void BBFLAT()
+	{
+		// Open fingering
+		if (true)
+		{
 		
 		}
 		// First valve
@@ -91,11 +167,56 @@ public class Tuba
 		{
 		
 		}
-	}
-	
-	public void BBFLAT()
-	{
-	
+		// 1 & 2
+		else if (true)
+		{
+		
+		}
+		// 1 & 3
+		else if (true)
+		{
+		
+		}
+		// 1 & 4
+		else if (true)
+		{
+		
+		}
+		// 2 & 3
+		else if (true)
+		{
+		
+		}
+		// 2 & 4
+		else if (true)
+		{
+		
+		}
+		// 3 & 4
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 3
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 4
+		else if (true)
+		{
+		
+		}
+		// 2 & 3 & 4
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 3 & 4
+		else if (true)
+		{
+		
+		}
 	}
 	
 	public void EFLAT()
