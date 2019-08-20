@@ -22,4 +22,9 @@ void loop() {
   valve2_status = digitalRead(valve2);
   valve3_status = digitalRead(valve3);
   valve4_status = digitalRead(valve4);
+
+  Serial.println(valve1_status);
+  Serial.println(valve2_status);
+  Serial.println(valve3_status);
+  Serial.println(valve4_status);
 }
