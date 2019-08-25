@@ -105,7 +105,7 @@ public class Tuba
 		// 1 & 4
 		else if (true)
 		{
-			// TODO: Find note that is played
+			// No known note
 		}
 		// 2 & 3
 		else if (true)
@@ -120,8 +120,8 @@ public class Tuba
 		// 3 & 4
 		else if (true)
 		{
-			// TODO: Find note that is played
-			// Low Eb?
+			// Low Eb - bad tuning
+			// Low Cb
 		}
 		// 1 & 2 & 3
 		else if (true)
@@ -133,10 +133,20 @@ public class Tuba
 		{
 			// Play low F
 		}
+		// 1 & 3 & 4
+		else if (true)
+		{
+			// Play low Db
+		}
 		// 2 & 3 & 4
 		else if (true)
 		{
 			// Play low E
+		}
+		// 1 & 2 & 3 & 4
+		else if (true)
+		{
+			// Play low C
 		}
 	}
 	
@@ -207,6 +217,11 @@ public class Tuba
 		{
 		
 		}
+		// 1 & 3 & 4
+		else if (true)
+		{
+		
+		}
 		// 2 & 3 & 4
 		else if (true)
 		{
@@ -218,10 +233,89 @@ public class Tuba
 		
 		}
 	}
-	
+
 	public void EFLAT()
 	{
-	
+		// Open fingering
+		if (true)
+		{
+		
+		}
+		// First valve
+		else if (true)
+		{
+		
+		}
+		// Second valve
+		else if (true)
+		{
+		
+		}
+		// Third valve
+		else if (true)
+		{
+		
+		}
+		// Fourth valve
+		else if (true)
+		{
+		
+		}
+		// 1 & 2
+		else if (true)
+		{
+		
+		}
+		// 1 & 3
+		else if (true)
+		{
+		
+		}
+		// 1 & 4
+		else if (true)
+		{
+		
+		}
+		// 2 & 3
+		else if (true)
+		{
+		
+		}
+		// 2 & 4
+		else if (true)
+		{
+		
+		}
+		// 3 & 4
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 3
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 4
+		else if (true)
+		{
+		
+		}
+		// 1 & 3 & 4
+		else if (true)
+		{
+		
+		}
+		// 2 & 3 & 4
+		else if (true)
+		{
+		
+		}
+		// 1 & 2 & 3 & 4
+		else if (true)
+		{
+		
+		}
 	}
 	
 	public void F()
