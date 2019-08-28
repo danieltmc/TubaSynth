@@ -1,5 +1,5 @@
 all: FORCE
-	javac *.java
+	javac cp comm.java *.java
 
 FORCE:
 
