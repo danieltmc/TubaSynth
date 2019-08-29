@@ -28,82 +28,82 @@ void loop()
   // 0000
   if (!valve1_status & !valve2_status & !valve3_status & !valve4_status)
   {
-    
+    Serial.write(0);
   }
   // 1000
   else if (valve1_status & !valve2_status & !valve3_status & !valve4_status)
   {
-    
+    Serial.write(1);
   }
   // 0100
   else if (!valve1_status & valve2_status & !valve3_status & !valve4_status)
   {
-    
+    Serial.write(2);
   }
   // 0010
   else if (!valve1_status & !valve2_status & valve3_status & !valve4_status)
   {
-    
+    Serial.write(3);
   }
   // 0001
   else if (!valve1_status & !valve2_status & !valve3_status & valve4_status)
   {
-    
+    Serial.write(4);
   }
   // 1100
   else if (valve1_status & valve2_status & !valve3_status & !valve4_status)
   {
-    
+    Serial.write(12);
   }
   // 1010
   else if (valve1_status & !valve2_status & valve3_status & !valve4_status)
   {
-    
+    Serial.write(13);
   }
   // 1001
   else if (valve1_status & !valve2_status & !valve3_status & valve4_status)
   {
-    
+    Serial.write(14);
   }
   // 0110
   else if (!valve1_status & valve2_status & valve3_status & !valve4_status)
   {
-    
+    Serial.write(23);
   }
   // 0101
   else if (!valve1_status & valve2_status & !valve3_status & valve4_status)
   {
-    
+    Serial.write(24);
   }
   // 0011
   else if (!valve1_status & !valve2_status & valve3_status & valve4_status)
   {
-    
+    Serial.write(34);
   }
   // 1110
   else if (valve1_status & valve2_status & valve3_status & !valve4_status)
   {
-    
+    Serial.write(123);
   }
   // 1101
   else if (valve1_status & valve2_status & !valve3_status & valve4_status)
   {
-    
+    Serial.write(124);
   }
   // 1011
   else if (valve1_status & !valve2_status & valve3_status & valve4_status)
   {
-    
+    Serial.write(134);
   }
   // 0111
   else if (!valve1_status & valve2_status & valve3_status & valve4_status)
   {
-    
+    Serial.write(234);
   }
   // 1111
   else if (valve1_status & valve2_status & valve3_status & valve4_status)
   {
-    
+    Serial.write(1234);
   }
   //Serial.print(valve1_status);
   //Serial.print(valve2_status);
