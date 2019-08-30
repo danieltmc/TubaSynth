@@ -1,4 +1,3 @@
-//import javax.comm.*;
 import com.fazecast.jSerialComm.*;
 
 public class SerialMonitor
@@ -8,30 +7,17 @@ public class SerialMonitor
 		
 	}
 	
-	public static void list_ports()
+	public static SerialPort[] get_ports()
 	{
-		java.util.Enumeration<CommPortIdentifier> port_enum = CommPortIdentifier.getPortIdentifiers();
-		while (port_enum.hasMoreElements())
-		{
-			CommPortIdentifier identifier = port_enum.nextElement();
-			System.out.println(identifier.getName() + " - " + port_type(identifier.getPortType()));
-		}
-	}
-	
-	public static String port_type(int type)
-	{
-		if (type == CommPortIdentifier.PORT_SERIAL)
-		{
-			return("Serial");
-		}
-		else
-		{
-			return("Other type not used by this program");
-		}
+		return(SerialPort.getCommPorts());
 	}
 	
 	public static void main(String[] args)
 	{
-		list_ports();
+		SerialPort[] ports = get_ports();
+		for (int i = 0; i < ports.length; i++)
+		{
+			System.out.println(ports[i]);
+		}
 	}
 }
