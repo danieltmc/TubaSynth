@@ -7,18 +7,30 @@ public class SerialMonitor
 		
 	}
 	
-	public void list_ports()
+	public static void list_ports()
 	{
 		java.util.Enumeration<CommPortIdentifier> port_enum = CommPortIdentifier.getPortIdentifiers();
 		while (port_enum.hasMoreElements())
 		{
 			CommPortIdentifier identifier = port_enum.nextElement();
-			System.out.println(identifier.getName() + " - " );//+ );
+			System.out.println(identifier.getName() + " - " + port_type(identifier.getPortType()));
 		}
 	}
 	
-	public String port_type(int type)
+	public static String port_type(int type)
 	{
-		return(null);
+		if (type == CommPortIdentifier.PORT_SERIAL)
+		{
+			return("Serial");
+		}
+		else
+		{
+			return("Other type not used by this program");
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		list_ports();
 	}
 }
