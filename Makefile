@@ -1,10 +1,10 @@
 all: FORCE
-	javac cp comm.java *.java
+	javac cp comm.jar *.java
 
 FORCE:
 
 run: FORCE
-	java Synth
+	java -cp comm.jar:. Synth
 
 clean:
 	rm *.class
