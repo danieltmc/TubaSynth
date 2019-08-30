@@ -1,4 +1,5 @@
-import javax.comm.*;
+//import javax.comm.*;
+import com.fazecast.jSerialComm.*;
 
 public class SerialMonitor
 {
