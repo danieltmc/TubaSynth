@@ -1,7 +1,24 @@
 import com.fazecast.jSerialComm.*;
 
 public class SerialMonitor
-{	
+{
+	public SerialPort port;
+	
+	public SerialMonitor()
+	{
+		this.port = null;
+	}
+	
+	public SerialMonitor(SerialPort port)
+	{
+		this.port = port;
+	}
+	
+	public void set_port(SerialPort port)
+	{
+		this.port = port;
+	}
+	
 	public void monitor_buffer(SerialPort port)
 	{
 		port.openPort();
