@@ -1,3 +1,5 @@
+#include <MIDI.h>
+
 const int valve1 = 16;
 const int valve2 = 5;
 const int valve3 = 4;
