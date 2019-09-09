@@ -17,6 +17,8 @@ int interrupt_status = 0; // 0-1
 int valve_combo = 0;
 int encoded = 0;
 
+MIDI_CREATE_DEFAULT_INSTANCE();
+
 void setup()
 {
   Serial.begin(9600);
@@ -26,6 +28,8 @@ void setup()
   pinMode(valve4, INPUT);
   pinMode(wind, INPUT);
   pinMode(interrupt, INPUT);
+
+  MIDI.begin(MIDI_CHANNEL_OMNI);
 }
 
 void loop()
