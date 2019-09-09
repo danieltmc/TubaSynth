@@ -1,5 +1,10 @@
 #include <MIDI.h>
 
+enum tuning
+{
+  CC, BBb, F
+};
+
 const int valve1 = 16;
 const int valve2 = 5;
 const int valve3 = 4;
@@ -13,9 +18,16 @@ int valve3_status = 0; // 0-1
 int valve4_status = 0; // 0-1
 int wind_status = 0; // 0-1023
 int interrupt_status = 0; // 0-1
+int freq = 0; // 0-1000
 
 int valve_combo = 0;
 int encoded = 0;
+
+int last_note = 0;
+int last_vel = 0;
+const int channel = 1;
+
+tuning key = CC;
 
 MIDI_CREATE_DEFAULT_INSTANCE();
 
@@ -51,12 +63,24 @@ void loop()
   else if (!wind_status)
   {
     Serial.write(0);
+    //MIDI.sendNoteOff(last_note, last_vel, channel);
     return;
   }
   // 0000 - Open valves
   else if (!valve1_status & !valve2_status & !valve3_status & !valve4_status)
   {
     valve_combo = 0;
+    // Follow the harmonic series
+    /*if (key == CC)
+    {
+      if (freq < 10)
+      {
+        last_note = 0;
+        last_vel = wind_status / 8;
+      }
+      else if (freq < 20)
+      {
+    }*/
   }
   // 1000 - First valve
   else if (valve1_status & !valve2_status & !valve3_status & !valve4_status)
@@ -133,6 +157,9 @@ void loop()
   {
     valve_combo = 1234;
   }
+
+  //last_vel = wind_status / 8;
+  //MIDI.sendNoteOn(last_note, last_vel, 1);
   
   encoded = (valve_combo << 10) + wind_status;
   Serial.write(encoded);
