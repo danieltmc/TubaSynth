@@ -2,7 +2,7 @@
 
 enum tuning
 {
-  CC, BBb, F
+  CC, BBb, Eb, F
 };
 
 const int valve1 = 16;
