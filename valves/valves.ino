@@ -144,11 +144,12 @@ void CC_loop()
     playing = false;
     return;
   }
+  // Follow the harmonic series
+  // Cutoff frequencies are approximately halfway between the harmonics for a given fingering
   // 0000 - Open valves
   else if (!valve1_status & !valve2_status & !valve3_status & !valve4_status)
   {
-    // Follow the harmonic series
-    // Cutoff frequencies are approximately halfway between the harmonics for a given fingering
+    /*
     if (freq < 12)
     {
       new_note = 0; // C-1 or 8.18Hz AKA Triple Pedal C
@@ -157,7 +158,8 @@ void CC_loop()
     {
       new_note = 12; // C0 or 16.35Hz AKA Double Pedal C
     }
-    else if (freq < 40)
+    else if (freq < 40)*/
+    if (freq < 40)
     {
       new_note = 24; // C1 or 32.70Hz AKA Pedal C
     }
@@ -189,7 +191,7 @@ void CC_loop()
     {
       new_note = 55; // G3 or 196.00Hz AKA High G
     }
-    else if (freq < 287)a
+    else if (freq < 287)
     {
       new_note = 60; // C4 or 261.63Hz AKA High C (Middle on Piano)
     }
@@ -229,7 +231,66 @@ void CC_loop()
   // 1000 - First valve
   else if (valve1_status & !valve2_status & !valve3_status & !valve4_status)
   {
-    
+    if (freq < 1000)
+    {
+      new_note = 22; // Bb0 or 30.87Hz AKA Pedal Bb
+    }
+    else if (freq < 1000)
+    {
+      new_note = 34; // Bb1 or 58.27Hz AKA Low Bb
+    }
+    else if (freq < 1000)
+    {
+      new_note = 41; // F2 or 87.31Hz AKA Middle F
+    }
+    else if (freq < 1000)
+    {
+      new_note = 46; // Bb2 or 116.54Hz AKA Middle Bb
+    }
+    else if (freq < 1000)
+    {
+      new_note = 50; // D3 or 146.83Hz AKA High D
+    }
+    else if (freq < 1000)
+    {
+      new_note = 53; // F3 or 174.61 AKA High F
+    }
+    else if (freq < 1000)
+    {
+      new_note = 58; // Bb3 or 233.88Hz AKA High Bb
+    }
+    else if (freq < 1000)
+    {
+      new_note = 62; // D4 or 293.66Hz AKA D Above Staff
+    }
+    else if (freq < 1000)
+    {
+      new_note = 65; // F4 or 349.23Hz AKA Treble F
+    }
+    else if (freq < 1000)
+    {
+      new_note = 68; // Ab4 or 415.30Hz AKA Treble Ab
+    }
+    else if (freq < 1000)
+    {
+      new_note = 70; // Bb4 or 466.16Hz AKA Treble Bb
+    }
+    else if (freq < 1000)
+    {
+      new_note = 74; // D5 or 587.32Hz AKA Treble D
+    }
+    else if (freq < 1000)
+    {
+      new_note = 77; // F5 or 698.46Hz AKA Not Playable
+    }
+    else if (freq < 1000)
+    {
+      new_note = 80; // Ab5 or 830.61Hz AKA Not Playable
+    }
+    else if (freq < 1000)
+    {
+      new_note = 82; // Bb5 or 932.33Hz AKA Not Playable
+    }
   }
   // 0100 - Second valve
   else if (!valve1_status & valve2_status & !valve3_status & !valve4_status)
